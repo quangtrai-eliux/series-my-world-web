@@ -1,0 +1,19 @@
+$(document).ready(function(){
+    $('.lightDark i').click(function(){
+        $('#start').toggleClass('dark');
+        $('#start').toggleClass('light');
+        $('.start-link').removeClass('on');
+        setTimeout(function(){
+            $('.start-link').addClass('on');
+        },1200)
+    });
+})
+$(window).on('load',function(){
+        $('.loading').addClass('off');
+        setTimeout(function(){
+            $('.wrapper').addClass('wrapper-blur')
+        },1500)
+        setTimeout(function(){
+            $('.start-link').addClass('on');
+        },1200)
+})

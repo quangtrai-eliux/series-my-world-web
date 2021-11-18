@@ -1,0 +1,203 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+#start {
+    background-image: url(../img/12.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#start::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        -45deg,
+        transparent 50%,
+        rgba(255,255,255,0.03) 58%,
+        rgba(255,255,255,0.16) 67%,
+        transparent 68%
+    );
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: relative;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10vw;
+    color: #000;
+    text-transform: uppercase;
+    mix-blend-mode: screen;
+    user-select: none;
+}
+
+.wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0%, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);
+    background-color: white;
+    animation: animBG 0.5s linear;
+}
+.dark .wrapper{
+    filter: invert(1);
+    mix-blend-mode: multiply;
+}
+/* .dark .wrapper-blur,
+.light .wrapper-blur {
+    backdrop-filter: blur(10px);
+} */
+.dark .wrapper::after {
+    animation: animBGd 0.5s linear;
+}
+@keyframes animBG {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+    } 
+    100% {
+        clip-path: polygon(0 0, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);
+    }
+}
+@keyframes animBGd {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+    } 
+    100% {
+        clip-path: polygon(0 0, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);
+    }
+}
+.text {
+    z-index: 2;
+    position: absolute;
+}
+.text-welcome {
+    top: 10%;
+    left: 11%;
+}
+.text-welcome::before,
+.text-to::before,
+.text-my-world::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        -45deg,
+        transparent 50%,
+        rgba(255,255,255,0.5) 58%,
+        rgba(255,255,255,1) 67%,
+        transparent 68%
+    );
+    background-size: 200% 100%;
+    background-position: 150% 0;
+    animation: animWel 0.7s linear;
+    animation-delay: 0.75s;
+    /* transition: 0.7s; */
+}
+.text-to::before {
+    background-position: 130% 0;
+    animation: animWel 0.4s linear;
+    animation-delay: 0.75s;
+}
+.dark .text-welcome::before,
+.dark .text-my-world::before {
+    animation: animWeld 0.7s linear;
+    animation-delay: 0.75s;
+}
+.dark .text-to::before {
+    animation: animWeld 0.4s linear;
+    animation-delay: 0.75s;
+}
+@keyframes animWel {
+    to {
+        background-position: 310% 0;
+    }
+}
+@keyframes animWeld {
+    to {
+        background-position: 310% 0;
+    }
+}
+.text-to {
+    top: 37%;
+    left: 47%;
+}
+.text-my-world {
+    top: 65%;
+    left: 42%;
+}
+.lightDark {
+    color: #000;
+    z-index: 100;
+    position: absolute;
+    font-size: 2.5vw;
+    top: 2%;
+    left: 2%;  
+}
+.lightDark i:nth-child(n) {
+    padding: 1vw;
+    border: 1px solid black;
+    width: 2.5vw;
+    height: 2.5vw;
+    cursor: pointer;
+}
+.lightDark i:nth-child(2){
+    display: none;
+}
+.dark .lightDark i:nth-child(2){
+    display: block;
+}
+.dark .lightDark i:nth-child(1) {
+    display: none;
+}
+.start-link {
+    position: absolute;
+    color: black;
+    z-index: 999;
+    text-decoration: none;
+    font-size: 2.5vw;
+    bottom: 3%;
+    left: 6%;
+    background-color: white;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    
+}
+.start-link.on {
+    opacity: 1;
+    transition: 0.5s;
+    cursor: pointer;
+    pointer-events: all;
+}
+.loading {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/12.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.loading.off {
+    display: none
+}
